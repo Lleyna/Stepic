@@ -1,0 +1,21 @@
+string line = Console.ReadLine();
+string[] splitString = line.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+if (splitString.Length == 0 ) 
+{
+Console.WriteLine("Ошибка ввода");
+Console.ReadKey();
+return;
+}
+
+int minValue = int.MaxValue;
+int maxValue = int.MinValue; 
+
+foreach (var item in splitString)
+{
+  var parsed = Convert.ToInt32(item);
+ if (minValue > parsed) { minValue = parsed; }
+ if (maxValue < parsed) { maxValue = parsed; }
+ }
+Console.WriteLine($"Наименьшее число - {minValue}");
+Console.WriteLine($"Наибольшее число - {maxValue}");
+Console.ReadKey();
